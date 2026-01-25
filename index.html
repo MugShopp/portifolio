@@ -29,7 +29,7 @@
     img { max-width: 100%; display: block; }
 
     header {
-      padding: 60px 22px 30px;
+      padding: 60px 22px 20px;
       max-width: 1100px;
       margin: 0 auto;
       text-align: left;
@@ -75,20 +75,61 @@
       opacity: 0.8;
     }
 
+    /* SEÇÃO DE LOGOS (AUTORIDADE) */
+    .trusted-by {
+      padding: 20px 22px 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .trusted-by p {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--cinza);
+      margin-bottom: 20px;
+    }
+
+    .logos-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+      filter: grayscale(100%);
+      opacity: 0.6;
+    }
+
+    .logos-grid img {
+      height: 28px;
+      width: auto;
+      object-fit: contain;
+    }
+
     .container {
       max-width: 1100px;
       margin: 0 auto;
       padding: 0 22px;
     }
 
+    .section-header {
+      margin: 40px 0 30px;
+    }
+
     .section-title {
       font-size: 1rem;
-      margin: 50px 0 30px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 2px;
+      margin-bottom: 5px;
     }
 
+    .kit-suggestion {
+      font-size: 0.75rem;
+      color: var(--cinza);
+      font-style: italic;
+    }
+
+    /* GRID DE PRODUTOS */
     .catalog-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -103,11 +144,11 @@
     .product-image-wrapper {
       margin-bottom: 20px;
       aspect-ratio: 3 / 4;
-      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
       background: rgba(255,255,255,0.3);
+      overflow: hidden;
     }
 
     .product-image-wrapper img {
@@ -144,6 +185,7 @@
       opacity: 0.6;
     }
 
+    /* AJUSTE NO TEXTO E BOTÃO FINAL */
     .cta-section {
       text-align: left;
       padding: 40px 0;
@@ -169,7 +211,7 @@
       font-weight: 600;
       font-size: 0.7rem;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
       transition: all 0.3s ease;
     }
 
@@ -214,6 +256,7 @@
 
     @media (max-width: 768px) {
       .catalog-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+      .logos-grid { justify-content: center; }
     }
 
     @media (max-width: 480px) {
@@ -231,8 +274,24 @@
     <span class="header-badge">Qualidade impecável • Prazos realistas</span>
   </header>
 
+  <div class="trusted-by">
+    <p>Empresas que confiam em nossa produção:</p>
+    <div class="logos-grid">
+      <img src="https://i.postimg.cc/QtQ10dXK/IMG_20260106_143040.png" alt="Logo Cliente">
+      <img src="https://i.postimg.cc/HLQrCvfG/images_(1)_(1).png" alt="Logo Cliente">
+      <img src="https://i.postimg.cc/d08hKNzw/IMG_20260106_140938.png" alt="Logo Cliente">
+      <img src="https://i.postimg.cc/28NMv0by/Diocese.png" alt="Logo Cliente">
+      <img src="https://i.postimg.cc/mZS79kp2/logo_mazzaropi_C7hn_YVKl.png" alt="Logo Cliente">
+      <img src="https://i.postimg.cc/fbxVhq1G/images.png" alt="Logo Cliente">
+      <img src="https://i.postimg.cc/fLw125SC/Gemini_Generated_Image_fiqfdvfiqfdvfiqf.png" alt="Logo Cliente">
+    </div>
+  </div>
+
   <div class="container">
-    <h2 class="section-title">Coleção em destaque</h2>
+    <div class="section-header">
+      <h2 class="section-title">Coleção em destaque</h2>
+      <p class="kit-suggestion">Composições sugeridas: Onboarding (Mousepad + Caneca + Porta-copos) | Eventos (Squeeze + Sacola)</p>
+    </div>
 
     <div class="catalog-grid">
       
@@ -253,7 +312,7 @@
         </div>
         <div class="product-info">
           <h3>Porta-copos Executivo 9x9</h3>
-          <p>Sofisticação em neoprene para eventos e reuniões institucionais.</p>
+          <p>Essencial para kits de boas-vindas e proteção de mobiliário corporativo.</p>
           <div class="product-specs">Linha Onboarding</div>
         </div>
       </div>
@@ -265,7 +324,7 @@
         <div class="product-info">
           <h3>Chaveiro Acrílico 4mm</h3>
           <p>Impressão retroversa com profundidade e estética refinada.</p>
-          <div class="product-specs">Acrílico Retroverso 4mm</div>
+          <div class="product-specs">Acrílico Retroverso</div>
         </div>
       </div>
 
@@ -275,8 +334,8 @@
         </div>
         <div class="product-info">
           <h3>Squeeze Aço Inox 500ml</h3>
-          <p>Design ergonômico com acabamento polido de alto brilho e sofisticação.</p>
-          <div class="product-specs">Aço Inox de alta qualidade / Temos também opções em alumínio/div>
+          <p>Design ergonômico com acabamento polido de alto brilho.</p>
+          <div class="product-specs">Aço Inox Premium</div>
         </div>
       </div>
 
@@ -287,7 +346,7 @@
         <div class="product-info">
           <h3>Caneca Cerâmica High-Gloss</h3>
           <p>Brilho superior em 325ml de pura identidade visual corporativa.</p>
-          <div class="product-specs">Cerâmica resistente a microondas e lava louças</div>
+          <div class="product-specs">Cerâmica Superior</div>
         </div>
       </div>
 
@@ -331,7 +390,7 @@
         <div class="product-info">
           <h3>Sacola Soft Tactel</h3>
           <p>Toque suave e caimento elegante para valorizar o seu presente.</p>
-          <div class="product-specs">Tactel de alto brilho e suavidade</div>
+          <div class="product-specs">Tactel Premium</div>
         </div>
       </div>
     </div>
@@ -354,4 +413,4 @@
   </footer>
 
 </body>
-</html>
+            </html>
