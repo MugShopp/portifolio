@@ -36,7 +36,7 @@
     }
 
     .logo-top {
-      width: 160px; /* Logo com maior presença */
+      width: 160px;
       margin-bottom: 25px;
     }
 
@@ -79,7 +79,6 @@
       color: var(--black);
     }
 
-    /* GRID DE PRODUTOS VERTICAL E LUXUOSO */
     .catalog-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -92,15 +91,14 @@
       transition: all 0.3s ease;
     }
 
-    /* Formato Vertical Elegante */
     .product-image-wrapper {
       margin-bottom: 20px;
-      aspect-ratio: 3 / 4; /* Formato vertical de revista de moda/luxo */
+      aspect-ratio: 3 / 4;
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(255,255,255,0.3); /* Fundo leve para unificar */
+      background: rgba(255,255,255,0.3);
     }
 
     .product-image-wrapper img {
@@ -138,7 +136,6 @@
       opacity: 0.6;
     }
 
-    /* FOOTER CTA */
     .cta-section {
       text-align: left;
       padding: 60px 0;
@@ -154,7 +151,6 @@
       color: var(--black);
     }
 
-    /* Botão menor e ultra delicado */
     .cta-btn-line {
       display: inline-block;
       padding: 8px 24px;
@@ -174,39 +170,39 @@
       color: var(--white);
     }
 
-    /* RODAPÉ ESTRUTURADO */
+    /* RODAPÉ CENTRALIZADO */
     footer {
-      padding: 60px 22px 40px;
+      padding: 80px 22px 60px;
       max-width: 1100px;
       margin: 0 auto;
+      text-align: center; /* Centraliza tudo no rodapé */
     }
 
     .footer-logo {
-      width: 100px;
-      margin-bottom: 25px;
+      width: 110px;
+      margin: 0 auto 25px;
     }
 
-    .footer-line-top {
-      font-size: 0.65rem;
-      color: var(--cinza);
-      margin: 5px 0;
-      letter-spacing: 0.5px;
-      text-align: left; /* Alinhado à esquerda como pedido */
-    }
-
-    .footer-centered-block {
-      text-align: center; /* Bloco centralizado para as frases específicas */
-      margin-top: 30px;
-      border-top: 1px solid rgba(0,0,0,0.03);
-      padding-top: 20px;
-    }
-
-    .footer-centered-block p {
+    .footer-line {
       font-size: 0.65rem;
       color: var(--cinza);
       margin: 4px 0;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-centered-block {
+      margin-top: 45px;
+      border-top: 1px solid rgba(0,0,0,0.03);
+      padding-top: 30px;
+    }
+
+    .footer-centered-block p {
+      font-size: 0.55rem;
+      color: var(--cinza);
+      margin: 4px 0;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
+      opacity: 0.8;
     }
 
     @media (max-width: 768px) {
@@ -342,8 +338,8 @@
 
   <footer>
     <img src="https://i.postimg.cc/Hs4DVWDG/file_00000000b69061f8ae80cb7ce110477f_(1)_(1).png" alt="MugShopp Logo" class="footer-logo">
-    <p class="footer-line-top">© 2026 MugShopp Presentes Personalizados.</p>
-    </p>CNPJ: 64.137.780/0001-07</p>
+    <p class="footer-line">© 2026 MugShopp Presentes Personalizados.</p>
+    <p class="footer-line">CNPJ: 64.137.780/0001-07</p>
     
     <div class="footer-centered-block">
       <p>Todos os direitos reservados</p>
