@@ -5,132 +5,136 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MugShopp | Portfólio Corporativo Premium</title>
 
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --accent: #111111; 
-      --black: #111111;
+      --accent: #C5A059; /* Dourado Champagne */
+      --black: #1a1a1a;
       --white: #ffffff;
       --palha: #f4efe8;
-      --cinza: #666666;
+      --cinza: #6e6e73;
       --cinza-claro: rgba(0,0,0,0.08);
     }
 
     * { box-sizing: border-box; }
 
     body {
-      margin: 0;
-      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-family: 'Inter', Helvetica Neue, Arial, sans-serif;
       background-color: var(--palha);
       color: var(--black);
+      margin: 0;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
 
     img { max-width: 100%; display: block; }
 
-    header {
-      padding: 60px 22px 20px;
-      max-width: 1100px;
-      margin: 0 auto;
-      text-align: left;
+    /* ESTILO DO LOGOTIPO MUGSHOPP */
+    .brand-logo {
+      text-align: center;
+      display: inline-block;
+      margin-bottom: 25px;
+    }
+    .brand-logo h1 {
+      font-weight: 600;
+      font-size: 26px;
+      letter-spacing: 10px;
+      margin: 0;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+    .brand-logo .shopp-gold { color: var(--accent); }
+    .brand-tagline {
+      font-size: 8px;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: var(--black);
+      margin-top: 10px;
+      display: block;
+      font-weight: 400;
     }
 
-    .logo-top {
-      width: 160px;
-      margin-bottom: 25px;
+    header {
+      padding: 80px 22px 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
     }
 
     .header-divider {
       width: 100%;
       height: 1px;
       background-color: var(--cinza-claro);
-      margin-bottom: 40px;
+      margin: 40px 0;
     }
 
-    header h1 {
+    .header-content {
+      text-align: left;
+    }
+
+    .header-content h1 {
       font-size: 1.8rem;
       letter-spacing: -0.5px;
-      margin-bottom: 12px;
-      font-weight: 700;
-      text-transform: lowercase;
+      margin-bottom: 15px;
+      font-weight: 600;
     }
 
-    header h1::first-letter { text-transform: uppercase; }
-
-    header p {
+    .header-content p {
       color: var(--cinza);
       font-size: 0.95rem;
       max-width: 600px;
       font-weight: 300;
+      margin: 0;
     }
 
     .header-badge {
       font-size: 0.7rem;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
       color: var(--black);
-      font-weight: 700;
+      font-weight: 600;
       display: block;
-      margin-top: 15px;
+      margin-top: 20px;
       opacity: 0.8;
     }
 
-    /* SEÇÃO DE LOGOS COM EFEITO POP-OUT */
+    /* SEÇÃO DE CLIENTES */
     .trusted-by {
-      padding: 20px 22px 40px;
+      padding: 20px 22px 60px;
       max-width: 1100px;
       margin: 0 auto;
     }
 
     .trusted-by p {
-      font-size: 0.65rem;
+      font-size: 0.7rem;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--cinza);
-      margin-bottom: 30px;
+      letter-spacing: 2px;
+      color: #bbb;
+      margin-bottom: 35px;
     }
 
     .logos-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 40px;
+      gap: 45px;
       align-items: center;
-      perspective: 1000px;
-      margin-bottom: 25px;
     }
 
     .logos-grid img {
       height: 28px;
-      width: auto;
-      object-fit: contain;
       filter: grayscale(100%);
       opacity: 0.4;
-      transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-      cursor: pointer;
-      position: relative;
-      z-index: 1;
-      -webkit-tap-highlight-color: transparent;
+      transition: all 0.5s ease;
     }
 
-    .logos-grid img:hover,
-    .logos-grid img:active {
+    .logos-grid img:hover {
       filter: grayscale(0%);
       opacity: 1;
-      transform: scale(1.6) translateY(-5px);
-      filter: drop-shadow(0 15px 15px rgba(0,0,0,0.15));
-      z-index: 100;
+      transform: scale(1.1);
     }
 
-    .interaction-hint {
-      font-size: 0.6rem;
-      color: var(--black);
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      opacity: 0.5;
-      display: block;
-      margin-top: 10px;
-    }
-
+    /* GRID DE PRODUTOS */
     .container {
       max-width: 1100px;
       margin: 0 auto;
@@ -140,15 +144,15 @@
     .section-header {
       margin: 40px 0 30px;
       border-top: 1px solid var(--cinza-claro);
-      padding-top: 40px;
+      padding-top: 50px;
     }
 
     .section-title {
       font-size: 1rem;
-      font-weight: 700;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 8px;
+      letter-spacing: 3px;
+      margin-bottom: 12px;
     }
 
     .kit-suggestion {
@@ -159,9 +163,9 @@
 
     .catalog-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 60px 40px;
-      margin-bottom: 80px;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 70px 50px;
+      margin-bottom: 100px;
     }
 
     .product-card {
@@ -169,121 +173,95 @@
     }
 
     .product-image-wrapper {
-      margin-bottom: 20px;
-      aspect-ratio: 3 / 4;
+      margin-bottom: 25px;
+      aspect-ratio: 1 / 1;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.4);
+      border-radius: 4px;
       overflow: hidden;
     }
 
     .product-image-wrapper img {
-      width: 85%;
-      height: 85%;
+      width: 80%;
+      height: 80%;
       object-fit: contain;
-      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.06));
-      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-      cursor: pointer;
+      filter: drop-shadow(0 15px 30px rgba(0,0,0,0.08));
+      transition: transform 0.6s ease;
     }
 
     .product-image-wrapper img:hover {
-      transform: scale(1.08);
+      transform: scale(1.05);
     }
 
     .product-info h3 {
-      font-size: 1rem;
-      margin: 0 0 6px;
-      font-weight: 700;
+      font-size: 1.1rem;
+      margin: 0 0 8px;
+      font-weight: 600;
     }
 
     .product-info p {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       color: var(--cinza);
-      margin: 0 0 8px;
+      margin: 0 0 12px;
       font-weight: 300;
+      line-height: 1.5;
     }
 
     .product-specs {
       font-size: 0.7rem;
-      color: var(--black);
+      color: var(--accent);
       text-transform: uppercase;
-      letter-spacing: 1px;
-      opacity: 0.6;
+      letter-spacing: 1.5px;
+      font-weight: 600;
     }
 
+    /* BOTÃO FINAL */
     .cta-section {
       text-align: left;
-      padding: 40px 0;
+      padding: 60px 0;
       border-top: 1px solid var(--cinza-claro);
-      margin-top: 20px;
-    }
-
-    .cta-section p {
-      font-size: 0.9rem;
-      max-width: 650px;
-      margin-bottom: 25px;
-      font-weight: 300;
-      color: var(--cinza);
     }
 
     .cta-btn-line {
       display: inline-block;
-      padding: 8px 20px;
-      border-radius: 40px;
-      border: 1px solid var(--black);
-      color: var(--black);
+      padding: 16px 40px;
+      background: var(--black);
+      color: var(--white);
       text-decoration: none;
       font-weight: 600;
-      font-size: 0.7rem;
+      font-size: 10px;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      transition: all 0.3s ease;
+      letter-spacing: 2px;
+      transition: 0.3s;
     }
 
     .cta-btn-line:hover {
-      background: var(--black);
-      color: var(--white);
+      background: var(--accent);
     }
 
+    /* RODAPÉ PADRONIZADO */
     footer {
-      padding: 80px 22px 60px;
-      max-width: 1100px;
-      margin: 0 auto;
+      padding: 100px 22px;
+      background: #fafafa;
+      border-top: 1px solid var(--cinza-claro);
       text-align: center;
     }
 
-    .footer-logo {
-      width: 100px;
-      margin: 0 auto 25px;
-    }
-
-    .footer-line {
-      font-size: 0.65rem;
-      color: var(--cinza);
-      margin: 2px 0;
-      letter-spacing: 0.5px;
-    }
-
-    .footer-centered-block {
-      margin-top: 45px;
-      border-top: 1px solid rgba(0,0,0,0.03);
-      padding-top: 30px;
-    }
-
-    .footer-centered-block p {
-      font-size: 0.55rem;
-      color: var(--cinza);
-      margin: 4px 0;
+    .footer-legal {
+      font-size: 10px;
+      color: #999;
+      letter-spacing: 1px;
+      line-height: 2.2;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      opacity: 0.8;
+      margin-top: 30px;
     }
 
     @media (max-width: 768px) {
-      .catalog-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
-      .logos-grid { justify-content: center; gap: 25px; }
-      .interaction-hint { text-align: center; }
+      .catalog-grid { grid-template-columns: 1fr 1fr; }
+      .header-content { text-align: center; }
+      .header-content p { margin: 0 auto; }
     }
 
     @media (max-width: 480px) {
@@ -294,121 +272,100 @@
 <body>
 
   <header>
-    <img src="https://i.postimg.cc/Hs4DVWDG/file_00000000b69061f8ae80cb7ce110477f_(1)_(1).png" alt="MugShopp Logo" class="logo-top">
+    <div class="brand-logo">
+      <h1>MUG<span class="shopp-gold">SHOPP</span></h1>
+      <span class="brand-tagline">Estúdio de Design & Personalizados</span>
+    </div>
     <div class="header-divider"></div>
-    <h1>Portfólio corporativo de personalizados</h1>
-    <p>Curadoria exclusiva em brindes de alto padrão para marcas que valorizam a excelência.</p>
-    <span class="header-badge">Qualidade impecável • Prazos realistas</span>
+    <div class="header-content">
+      <h1>Portfólio corporativo de personalizados</h1>
+      <p>Curadoria exclusiva em brindes de alto padrão para marcas que valorizam a excelência técnica e o design autoral.</p>
+      <span class="header-badge">Qualidade impecável • Prazos realistas</span>
+    </div>
   </header>
 
   <div class="trusted-by">
-    <p>Empresas que confiam em nossa produção:</p>
+    <p>Marcas que confiam em nossa produção:</p>
     <div class="logos-grid">
-      <img src="https://i.postimg.cc/QtQ10dXK/IMG_20260106_143040.png" alt="Logo">
-      <img src="https://i.postimg.cc/HLQrCvfG/images_(1)_(1).png" alt="Logo">
-      <img src="https://i.postimg.cc/d08hKNzw/IMG_20260106_140938.png" alt="Logo">
-      <img src="https://i.postimg.cc/28NMv0by/IMG-20260107-WA0021.png" alt="Logo Diocese">
-      <img src="https://i.postimg.cc/mZS79kp2/logo_mazzaropi_C7hn_YVKl.png" alt="Logo Mazzaropi">
-      <img src="https://i.postimg.cc/fbxVhq1G/images.png" alt="Logo">
-      <img src="https://i.postimg.cc/fLw125SC/Gemini_Generated_Image_fiqfdvfiqfdvfiqf.png" alt="Logo">
+      <img src="https://i.postimg.cc/QtQ10dXK/IMG_20260106_143040.png" alt="Marmoraria Marfil">
+      <img src="https://i.postimg.cc/HLQrCvfG/images_(1)_(1).png" alt="Aldine Muller">
+      <img src="https://i.postimg.cc/d08hKNzw/IMG_20260106_140938.png" alt="Convicção">
+      <img src="https://i.postimg.cc/28NMv0by/IMG-20260107-WA0021.png" alt="Diocese">
+      <img src="https://i.postimg.cc/mZS79kp2/logo_mazzaropi_C7hn_YVKl.png" alt="Mazzaropi">
+      <img src="https://i.postimg.cc/fbxVhq1G/images.png" alt="Parceiro">
     </div>
-    <span class="interaction-hint">Toque nas imagens para detalhes</span>
   </div>
 
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title">Coleção em destaque</h2>
-      <p class="kit-suggestion">Sugestões: Kit Boas-Vindas (Mousepad + Caneca + Porta-copos) | Kit Eventos (Squeeze + Sacola)</p>
+      <h2 class="section-title">Coleção Premium</h2>
+      <p class="kit-suggestion">Configurações sugeridas: Kit Boas-vindas Executivo | Kit Eventos de Impacto</p>
     </div>
 
     <div class="catalog-grid">
       <div class="product-card">
         <div class="product-image-wrapper"><img src="https://i.postimg.cc/T3JF2Thq/mousepad.png" alt="Mousepad"></div>
         <div class="product-info">
-          <h3>Mousepad Premium 19x19</h3>
-          <p>Textura em neoprene de alta densidade para o ambiente executivo.</p>
-          <div class="product-specs">Neoprene Antiderrapante</div>
+          <h3>Mousepad Premium</h3>
+          <p>Base em neoprene antiderrapante com acabamento em tecido de alta performance.</p>
+          <div class="product-specs">Linha Essenciais de Escritório</div>
         </div>
       </div>
       <div class="product-card">
         <div class="product-image-wrapper"><img src="https://i.postimg.cc/DzfD8RXk/Porta_copos.png" alt="Porta-copos"></div>
         <div class="product-info">
-          <h3>Porta-copos Executivo 9x9</h3>
-          <p>Proteção e sofisticação essencial para kits de integração.</p>
-          <div class="product-specs">Linha Onboarding</div>
+          <h3>Porta-copos Executivo</h3>
+          <p>O complemento ideal para proteger o mobiliário corporativo com identidade.</p>
+          <div class="product-specs">Kit Boas-Vindas</div>
         </div>
       </div>
       <div class="product-card">
         <div class="product-image-wrapper"><img src="https://i.postimg.cc/GmC6143J/chaveiro.png" alt="Chaveiro"></div>
         <div class="product-info">
-          <h3>Chaveiro Acrílico</h3>
-          <p>Impressão retroversa com profundidade e estética refinada.</p>
-          <div class="product-specs">Acrílico Retroverso 4mm</div>
+          <h3>Chaveiro Acrílico 4mm</h3>
+          <p>Transparência cristal com impressão no verso, conferindo profundidade à marca.</p>
+          <div class="product-specs">Acessórios Personalizados</div>
         </div>
       </div>
       <div class="product-card">
         <div class="product-image-wrapper"><img src="https://i.postimg.cc/HLWKVFyk/squeeze_aço_inox.png" alt="Squeeze"></div>
         <div class="product-info">
-          <h3>Squeeze Aço Inox 500ml</h3>
-          <p>Design ergonômico com acabamento polido de alto brilho.</p>
-          <div class="product-specs">Aço Inox Alto Brilho | Temos também opções em Alumínio</div>
+          <h3>Squeeze Aço Inox</h3>
+          <p>Acabamento polido e durabilidade extrema para uso diário intenso.</p>
+          <div class="product-specs">Linha Saúde e Bem-Estar</div>
         </div>
       </div>
       <div class="product-card">
         <div class="product-image-wrapper"><img src="https://i.postimg.cc/Qd3vrFNb/caneca_cerâmica.png" alt="Caneca Cerâmica"></div>
         <div class="product-info">
-          <h3>Caneca Cerâmica High-Gloss</h3>
-          <p>Brilho superior em 325ml de pura identidade visual corporativa.</p>
-          <div class="product-specs">Cerâmica Resistente a Micro Ondas e Lava Louças</div>
+          <h3>Caneca Cerâmica Alto Brilho</h3>
+          <p>Brilho impecável com resistência a processos de lavagem e micro-ondas.</p>
+          <div class="product-specs">Padrão de Qualidade MugShopp</div>
         </div>
       </div>
       <div class="product-card">
         <div class="product-image-wrapper"><img src="https://i.postimg.cc/Cxg9VRMD/caneca_alumínio.png" alt="Caneca Alumínio"></div>
         <div class="product-info">
           <h3>Caneca Alumínio 500ml</h3>
-          <p>Leveza e impacto visual para grandes ações de marca.</p>
-          <div class="product-specs">Alumínio Sofisticado</div>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-image-wrapper"><img src="https://i.postimg.cc/zG2MH0Sd/Azulejo.png" alt="Azulejo"></div>
-        <div class="product-info">
-          <h3>Azulejo de Homenagem</h3>
-          <p>A arte de eternizar conquistas com brilho e suporte incluso.</p>
-          <div class="product-specs">Cerâmica de alta qualidade</div>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-image-wrapper"><img src="https://i.postimg.cc/kgvzM7Bd/nécessaire.png" alt="Nécessaire"></div>
-        <div class="product-info">
-          <h3>Nécessaire Tailored 20x18</h3>
-          <p>Costura reforçada em poliéster para a rotina do executivo.</p>
-          <div class="product-specs">Poliéster Estruturado</div>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-image-wrapper"><img src="https://i.postimg.cc/xdj7cBb7/sacola_Saquinho.png" alt="Sacola Tactel"></div>
-        <div class="product-info">
-          <h3>Sacola Soft Tactel</h3>
-          <p>Toque suave e caimento elegante para valorizar o seu presente.</p>
-          <div class="product-specs">Tactel com Brilho</div>
+          <p>Resistência e leveza com personalização em alta definição para eventos.</p>
+          <div class="product-specs">Linha Eventos & Branding</div>
         </div>
       </div>
     </div>
 
     <div class="cta-section">
-      <p>Desenvolvemos brindes que fortalecem marcas e transformam ações corporativas em experiências memoráveis.</p>
-      <a href="#" class="cta-btn-line">Solicitar Orçamento Exclusivo</a>
+      <a href="https://wa.me/message/XJOCYNPNDO4DD1" class="cta-btn-line">Solicitar Orçamento Corporativo</a>
     </div>
   </div>
 
   <footer>
-    <img src="https://i.postimg.cc/Hs4DVWDG/file_00000000b69061f8ae80cb7ce110477f_(1)_(1).png" alt="MugShopp Logo" class="footer-logo">
-    <p class="footer-line">© 2026 MugShopp Presentes Personalizados.</p>
-    <p class="footer-line">CNPJ: 64.137.780/0001-07 | Produzido com cuidado em Taubaté/SP</p>
-    <div class="footer-centered-block">
-      <p>Todos os direitos reservados</p>
-      <p>• Brindes Corporativos de qualidade •</p>
+    <div class="brand-logo">
+      <h1>MUG<span class="shopp-gold">SHOPP</span></h1>
+    </div>
+    <div class="footer-legal">
+      MUGSHOPP • ESTÚDIO DE DESIGN E EXCELÊNCIA<br>
+      TAUBATÉ/SP • CNPJ: 64.137.780/0001-07<br>
+      © 2026 TODOS OS DIREITOS RESERVADOS.
     </div>
   </footer>
 
