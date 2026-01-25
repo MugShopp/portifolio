@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MugShopp | Portfólio Corporativo Premium</title>
+
+  <style>
+    :root {
+      --accent: #111111; 
+      --black: #111111;
+      --white: #ffffff;
+      --palha: #f4efe8;
+      --cinza: #666666;
+      --cinza-claro: rgba(0,0,0,0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background-color: var(--palha);
+      color: var(--black);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    header {
+      padding: 60px 22px 30px;
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .logo-top {
+      width: 160px; /* Logo com maior presença */
+      margin-bottom: 25px;
+    }
+
+    .header-divider {
+      width: 100%;
+      height: 1px;
+      background-color: var(--cinza-claro);
+      margin-bottom: 40px;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+      font-weight: 700;
+      text-transform: lowercase;
+    }
+
+    header h1::first-letter { text-transform: uppercase; }
+
+    header p {
+      color: var(--cinza);
+      font-size: 1rem;
+      max-width: 550px;
+      font-weight: 300;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 22px;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      margin: 50px 0 30px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--black);
+    }
+
+    /* GRID DE PRODUTOS VERTICAL E LUXUOSO */
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 60px 40px;
+      margin-bottom: 80px;
+    }
+
+    .product-card {
+      text-align: left;
+      transition: all 0.3s ease;
+    }
+
+    /* Formato Vertical Elegante */
+    .product-image-wrapper {
+      margin-bottom: 20px;
+      aspect-ratio: 3 / 4; /* Formato vertical de revista de moda/luxo */
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.3); /* Fundo leve para unificar */
+    }
+
+    .product-image-wrapper img {
+      width: 90%;
+      height: 90%;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.06));
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+      cursor: pointer;
+    }
+
+    .product-image-wrapper img:hover {
+      transform: scale(1.08);
+    }
+
+    .product-info h3 {
+      font-size: 1.05rem;
+      margin: 0 0 8px;
+      font-weight: 700;
+      letter-spacing: -0.2px;
+    }
+
+    .product-info p {
+      font-size: 0.9rem;
+      color: var(--cinza);
+      margin: 0 0 10px;
+      font-weight: 300;
+    }
+
+    .product-specs {
+      font-size: 0.75rem;
+      color: var(--black);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.6;
+    }
+
+    /* FOOTER CTA */
+    .cta-section {
+      text-align: left;
+      padding: 60px 0;
+      border-top: 1px solid var(--cinza-claro);
+      margin-top: 40px;
+    }
+
+    .cta-section p {
+      font-size: 1.1rem;
+      max-width: 750px;
+      margin-bottom: 35px;
+      font-weight: 300;
+      color: var(--black);
+    }
+
+    /* Botão menor e ultra delicado */
+    .cta-btn-line {
+      display: inline-block;
+      padding: 8px 24px;
+      border-radius: 40px;
+      border: 1px solid var(--black);
+      color: var(--black);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+
+    .cta-btn-line:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    /* RODAPÉ ESTRUTURADO */
+    footer {
+      padding: 60px 22px 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .footer-logo {
+      width: 100px;
+      margin-bottom: 25px;
+    }
+
+    .footer-line-top {
+      font-size: 0.65rem;
+      color: var(--cinza);
+      margin: 5px 0;
+      letter-spacing: 0.5px;
+      text-align: left; /* Alinhado à esquerda como pedido */
+    }
+
+    .footer-centered-block {
+      text-align: center; /* Bloco centralizado para as frases específicas */
+      margin-top: 30px;
+      border-top: 1px solid rgba(0,0,0,0.03);
+      padding-top: 20px;
+    }
+
+    .footer-centered-block p {
+      font-size: 0.65rem;
+      color: var(--cinza);
+      margin: 4px 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 768px) {
+      .catalog-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+      header h1 { font-size: 1.6rem; }
+    }
+
+    @media (max-width: 480px) {
+      .catalog-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="https://i.postimg.cc/Hs4DVWDG/file_00000000b69061f8ae80cb7ce110477f_(1)_(1).png" alt="MugShopp Logo" class="logo-top">
+    <div class="header-divider"></div>
+    <h1>Portfólio corporativo de personalizados</h1>
+    <p>Curadoria exclusiva em brindes de alto padrão para marcas que valorizam a excelência.</p>
+  </header>
+
+  <div class="container">
+    <h2 class="section-title">Coleção em destaque</h2>
+
+    <div class="catalog-grid">
+      
+      <div class="product-card">
+        <div class="product-image-wrapper">
+          <img src="https://i.postimg.cc/T3JF2Thq/mousepad.png" alt="Mousepad">
+        </div>
+        <div class="product-info">
+          <h3>Mousepad Premium 19x19</h3>
+          <p>Textura em neoprene de alta densidade, essencial para o ambiente executivo moderno.</p>
+          <div class="product-specs">Acabamento Antiderrapante</div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image-wrapper">
+          <img src="https://i.postimg.cc/DzfD8RXk/Porta_copos.png" alt="Porta-copos">
+        </div>
+        <div class="product-info">
+          <h3>Porta-copos Executivo 9x9</h3>
+          <p>Discrição e sofisticação em neoprene para eventos e reuniões institucionais.</p>
+          <div class="product-specs">Coleção Onboarding</div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image-wrapper">
+          <img src="https://i.postimg.cc/GmC6143J/chaveiro.png" alt="Chaveiro">
+        </div>
+        <div class="product-info">
+          <h3>Chaveiro Acrílico 4mm</h3>
+          <p>Impressão retroversa com profundidade, unindo durabilidade e estética refinada.</p>
+          <div class="product-specs">Acrílico Retroverso</div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image-wrapper">
+          <img src="https://i.postimg.cc/HLWKVFyk/squeeze_aço_inox.png" alt="Squeeze">
+        </div>
+        <div class="product-info">
+          <h3>Squeeze Aço Inox 500ml</h3>
+          <p>Design ergonômico com isolamento superior para ações corporativas de prestígio.</p>
+          <div class="product-specs">Acabamento Escovado</div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image-wrapper">
+          <img src="https://i.postimg.cc/Qd3vrFNb/caneca_cerâmica.png" alt="Caneca Cerâmica">
+        </div>
+        <div class="product-info">
+          <h3>Caneca Cerâmica High-Gloss</h3>
+          <p>O brilho da cerâmica premium em 325ml de pura identidade visual.</p>
+          <div class="product-specs">Padrão Institucional</div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image-wrapper">
+          <img src="https://i.postimg.cc/Cxg9VRMD/caneca_alumínio.png" alt="Caneca Alumínio">
+        </div>
+        <div class="product-info">
+          <h3>Caneca Alumínio 500ml</h3>
+          <p>Leveza e impacto visual para grandes ações e eventos de marca.</p>
+          <div class="product-specs">Alumínio Sofisticado</div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image-wrapper">
+          <img src="https://i.postimg.cc/zG2MH0Sd/Azulejo.png" alt="Azulejo">
+        </div>
+        <div class="product-info">
+          <h3>Azulejo de Homenagem</h3>
+          <p>A arte de eternizar conquistas com brilho e suporte para exposição.</p>
+          <div class="product-specs">Cerâmica de Luxo</div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image-wrapper">
+          <img src="https://i.postimg.cc/kgvzM7Bd/nécessaire.png" alt="Nécessaire">
+        </div>
+        <div class="product-info">
+          <h3>Nécessaire Tailored 20x18</h3>
+          <p>Costura reforçada em poliéster para kits que acompanham a rotina do executivo.</p>
+          <div class="product-specs">Poliéster Estruturado</div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image-wrapper">
+          <img src="https://i.postimg.cc/xdj7cBb7/sacola_Saquinho.png" alt="Sacola Tactel">
+        </div>
+        <div class="product-info">
+          <h3>Sacola Soft Tactel</h3>
+          <p>Toque suave e caimento elegante para embalagens que valorizam o presente.</p>
+          <div class="product-specs">Tactel Premium</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="cta-section">
+      <p>Desenvolvemos brindes que fortalecem marcas, criam conexões e transformam ações corporativas em experiências memoráveis.</p>
+      <a href="#" class="cta-btn-line">Fale com um representante</a>
+    </div>
+  </div>
+
+  <footer>
+    <img src="https://i.postimg.cc/Hs4DVWDG/file_00000000b69061f8ae80cb7ce110477f_(1)_(1).png" alt="MugShopp Logo" class="footer-logo">
+    <p class="footer-line-top">© 2026 MugShopp Presentes - Personalizados. | CNPJ: 64.137.780/0001-07</p>
+    
+    <div class="footer-centered-block">
+      <p>Todos os direitos reservados</p>
+      <p>• Brindes Corporativos de qualidade •</p>
+    </div>
+  </footer>
+
+</body>
+</html>
