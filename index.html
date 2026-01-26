@@ -30,29 +30,12 @@
 
     img { max-width: 100%; display: block; }
 
-    /* ESTILO DO LOGOTIPO MUGSHOPP */
-    .brand-logo {
-      text-align: center;
-      display: inline-block;
-      margin-bottom: 25px;
-    }
-    .brand-logo h1 {
-      font-weight: 600;
-      font-size: 26px;
-      letter-spacing: 10px;
-      margin: 0;
-      text-transform: uppercase;
-      color: var(--black);
-    }
-    .brand-logo .shopp-gold { color: var(--accent); }
-    .brand-tagline {
-      font-size: 8px;
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      color: var(--black);
-      margin-top: 10px;
+    /* ESTILO DO LOGOTIPO MUGSHOPP (IMAGEM) */
+    .brand-logo-img {
+      max-width: 400px;
+      height: auto;
       display: block;
-      font-weight: 400;
+      margin: 0 auto 10px;
     }
 
     header {
@@ -99,7 +82,7 @@
       opacity: 0.8;
     }
 
-    /* SEÇÃO DE CLIENTES EM CARROSSEL - AJUSTADA PARA ACRÍLICO GRANDE */
+    /* SEÇÃO DE CLIENTES EM CARROSSEL */
     .trusted-by {
       padding: 20px 22px 60px;
       max-width: 1100px;
@@ -124,7 +107,6 @@
       padding: 30px 0;
     }
 
-    /* O BLOCO DE ACRÍLICO REALISTA */
     .acrylic-plate {
       position: relative;
       background: rgba(255, 255, 255, 0.15);
@@ -135,7 +117,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 130px; /* Altura ideal para logos grandes */
+      height: 130px; 
       min-width: 240px;
       border: 1px solid rgba(255, 255, 255, 0.5);
       box-shadow: 
@@ -153,9 +135,8 @@
       pointer-events: none;
     }
 
-    /* TAMANHO DOS LOGOS NO CARROSSEL */
     .slider .trusted-logo {
-      height: 70px; /* LOGOS GRANDES CONFORME APROVADO */
+      height: 70px; 
       width: auto;
       filter: none; 
       opacity: 0.95;
@@ -175,7 +156,7 @@
       100% { transform: translateX(-50%); }
     }
 
-    /* GRID DE PRODUTOS - RESTAURADO AO ORIGINAL RIGOROSAMENTE */
+    /* GRID DE PRODUTOS */
     .container {
       max-width: 1100px;
       margin: 0 auto;
@@ -224,7 +205,6 @@
       overflow: hidden;
     }
 
-    /* TAMANHO DAS IMAGENS DOS PRODUTOS - ORIGINAL PRESERVADO */
     .product-image-wrapper img {
       width: 80%;
       height: 80%;
@@ -291,6 +271,13 @@
       text-align: center;
     }
 
+    .footer-brand-logo-img {
+      width: 180px;
+      height: auto;
+      margin: 0 auto;
+      display: block;
+    }
+
     .footer-legal {
       font-size: 10px;
       color: #999;
@@ -304,6 +291,7 @@
       .catalog-grid { grid-template-columns: 1fr 1fr; }
       .header-content { text-align: center; }
       .header-content p { margin: 0 auto; }
+      .brand-logo-img { max-width: 80%; }
     }
 
     @media (max-width: 480px) {
@@ -314,10 +302,7 @@
 <body>
 
   <header>
-    <div class="brand-logo">
-      <h1>MUG<span class="shopp-gold">SHOPP</span></h1>
-      <span class="brand-tagline">Estúdio de Design & Personalizados</span>
-    </div>
+    <img src="https://i.postimg.cc/wxsStnBH/Sem-fundo.png" alt="MUGSHOPP Estúdio de Design" class="brand-logo-img">
     <div class="header-divider"></div>
     <div class="header-content">
       <h1>Portfólio corporativo de personalizados</h1>
@@ -334,7 +319,6 @@
       <div class="acrylic-plate"><img src="https://i.postimg.cc/d08hKNzw/IMG_20260106_140938.png" class="trusted-logo" alt="Convicção"></div>
       <div class="acrylic-plate"><img src="https://i.postimg.cc/28NMv0by/IMG-20260107-WA0021.png" class="trusted-logo" alt="Diocese"></div>
       <div class="acrylic-plate"><img src="https://i.postimg.cc/mZS79kp2/logo_mazzaropi_C7hn_YVKl.png" class="trusted-logo" alt="Mazzaropi"></div>
-      <div class="acrylic-plate"><img src="https://i.postimg.cc/fLw125SC/Gemini_Generated_Image_fiqfdvfiqfdvfiqf.png" class="trusted-logo" alt="MugShopp"></div>
       <div class="acrylic-plate"><img src="https://i.postimg.cc/tCn1mQbV/Vila_inglesa.png" class="trusted-logo" alt="Vila Inglesa"></div>
       <div class="acrylic-plate"><img src="https://i.postimg.cc/vH6Mj7h1/IMG_20260109_WA0028.jpg" class="trusted-logo" alt="Parceiro Novo"></div>
       
@@ -343,7 +327,6 @@
       <div class="acrylic-plate"><img src="https://i.postimg.cc/d08hKNzw/IMG_20260106_140938.png" class="trusted-logo"></div>
       <div class="acrylic-plate"><img src="https://i.postimg.cc/28NMv0by/IMG-20260107-WA0021.png" class="trusted-logo"></div>
       <div class="acrylic-plate"><img src="https://i.postimg.cc/mZS79kp2/logo_mazzaropi_C7hn_YVKl.png" class="trusted-logo"></div>
-      <div class="acrylic-plate"><img src="https://i.postimg.cc/fLw125SC/Gemini_Generated_Image_fiqfdvfiqfdvfiqf.png" class="trusted-logo"></div>
       <div class="acrylic-plate"><img src="https://i.postimg.cc/tCn1mQbV/Vila_inglesa.png" class="trusted-logo"></div>
       <div class="acrylic-plate"><img src="https://i.postimg.cc/vH6Mj7h1/IMG_20260109_WA0028.jpg" class="trusted-logo"></div>
     </div>
@@ -412,9 +395,7 @@
   </div>
 
   <footer>
-    <div class="brand-logo">
-      <h1>MUG<span class="shopp-gold">SHOPP</span></h1>
-    </div>
+    <img src="https://i.postimg.cc/wxsStnBH/Sem-fundo.png" alt="MugShopp Logo" class="footer-brand-logo-img">
     <div class="footer-legal">
       MUGSHOPP • ESTÚDIO DE DESIGN E PERSONALIZADOS<br>
       TAUBATÉ/SP • CNPJ: 64.137.780/0001-07<br>
