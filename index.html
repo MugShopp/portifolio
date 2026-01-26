@@ -99,7 +99,7 @@
       opacity: 0.8;
     }
 
-    /* SEÇÃO DE CLIENTES EM CARROSSEL */
+    /* SEÇÃO DE CLIENTES EM CARROSSEL - AJUSTADA PARA ACRÍLICO GRANDE */
     .trusted-by {
       padding: 20px 22px 60px;
       max-width: 1100px;
@@ -117,33 +117,65 @@
 
     .slider {
       display: flex;
-      width: calc(280px * 16); 
+      width: max-content; 
       animation: scroll 40s linear infinite;
       align-items: center;
+      gap: 50px;
+      padding: 30px 0;
     }
 
-    .slider img {
-      height: 45px; /* AJUSTE DE VISIBILIDADE */
+    /* O BLOCO DE ACRÍLICO REALISTA */
+    .acrylic-plate {
+      position: relative;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 25px 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 130px; /* Altura ideal para logos grandes */
+      min-width: 240px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 
+        inset 0 0 15px rgba(255, 255, 255, 0.3),
+        10px 10px 25px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+
+    .acrylic-plate::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 50%;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* TAMANHO DOS LOGOS NO CARROSSEL */
+    .slider .trusted-logo {
+      height: 70px; /* LOGOS GRANDES CONFORME APROVADO */
       width: auto;
-      margin: 0 45px;
-      filter: grayscale(100%);
-      opacity: 0.5;
+      filter: none; 
+      opacity: 0.95;
       transition: all 0.5s ease;
       flex-shrink: 0;
+      z-index: 1;
     }
 
-    .slider img:hover {
-      filter: grayscale(0%);
-      opacity: 1;
-      transform: scale(1.1);
+    .acrylic-plate:hover {
+      transform: translateY(-8px) scale(1.05);
+      border-color: var(--accent);
+      background: rgba(255, 255, 255, 0.3);
     }
 
     @keyframes scroll {
       0% { transform: translateX(0); }
-      100% { transform: translateX(calc(-280px * 8)); }
+      100% { transform: translateX(-50%); }
     }
 
-    /* GRID DE PRODUTOS */
+    /* GRID DE PRODUTOS - RESTAURADO AO ORIGINAL RIGOROSAMENTE */
     .container {
       max-width: 1100px;
       margin: 0 auto;
@@ -192,6 +224,7 @@
       overflow: hidden;
     }
 
+    /* TAMANHO DAS IMAGENS DOS PRODUTOS - ORIGINAL PRESERVADO */
     .product-image-wrapper img {
       width: 80%;
       height: 80%;
@@ -296,22 +329,23 @@
   <div class="trusted-by">
     <p>Marcas que confiam em nossa produção:</p>
     <div class="slider">
-      <img src="https://i.postimg.cc/QtQ10dXK/IMG_20260106_143040.png" alt="Marmoraria Marfil">
-      <img src="https://i.postimg.cc/HLQrCvfG/images_(1)_(1).png" alt="Aldine Muller">
-      <img src="https://i.postimg.cc/d08hKNzw/IMG_20260106_140938.png" alt="Convicção">
-      <img src="https://i.postimg.cc/28NMv0by/IMG-20260107-WA0021.png" alt="Diocese">
-      <img src="https://i.postimg.cc/mZS79kp2/logo_mazzaropi_C7hn_YVKl.png" alt="Mazzaropi">
-      <img src="https://i.postimg.cc/fbxVhq1G/images.png" alt="Parceiro">
-      <img src="https://i.postimg.cc/tCn1mQbV/Vila_inglesa.png" alt="Vila Inglesa">
-      <img src="https://i.postimg.cc/vH6Mj7h1/IMG_20260109_WA0028.jpg" alt="Parceiro Novo">
-      <img src="https://i.postimg.cc/QtQ10dXK/IMG_20260106_143040.png" alt="Marmoraria Marfil">
-      <img src="https://i.postimg.cc/HLQrCvfG/images_(1)_(1).png" alt="Aldine Muller">
-      <img src="https://i.postimg.cc/d08hKNzw/IMG_20260106_140938.png" alt="Convicção">
-      <img src="https://i.postimg.cc/28NMv0by/IMG-20260107-WA0021.png" alt="Diocese">
-      <img src="https://i.postimg.cc/mZS79kp2/logo_mazzaropi_C7hn_YVKl.png" alt="Mazzaropi">
-      <img src="https://i.postimg.cc/fbxVhq1G/images.png" alt="Parceiro">
-      <img src="https://i.postimg.cc/tCn1mQbV/Vila_inglesa.png" alt="Vila Inglesa">
-      <img src="https://i.postimg.cc/vH6Mj7h1/IMG_20260109_WA0028.jpg" alt="Parceiro Novo">
+      <div class="acrylic-plate"><img src="https://i.postimg.cc/QtQ10dXK/IMG_20260106_143040.png" class="trusted-logo" alt="Marfil"></div>
+      <div class="acrylic-plate"><img src="https://i.postimg.cc/HLQrCvfG/images_(1)_(1).png" class="trusted-logo" alt="Aldine Muller"></div>
+      <div class="acrylic-plate"><img src="https://i.postimg.cc/d08hKNzw/IMG_20260106_140938.png" class="trusted-logo" alt="Convicção"></div>
+      <div class="acrylic-plate"><img src="https://i.postimg.cc/28NMv0by/IMG-20260107-WA0021.png" class="trusted-logo" alt="Diocese"></div>
+      <div class="acrylic-plate"><img src="https://i.postimg.cc/mZS79kp2/logo_mazzaropi_C7hn_YVKl.png" class="trusted-logo" alt="Mazzaropi"></div>
+      <div class="acrylic-plate"><img src="https://i.postimg.cc/fLw125SC/Gemini_Generated_Image_fiqfdvfiqfdvfiqf.png" class="trusted-logo" alt="MugShopp"></div>
+      <div class="acrylic-plate"><img src="https://i.postimg.cc/tCn1mQbV/Vila_inglesa.png" class="trusted-logo" alt="Vila Inglesa"></div>
+      <div class="acrylic-plate"><img src="https://i.postimg.cc/vH6Mj7h1/IMG_20260109_WA0028.jpg" class="trusted-logo" alt="Parceiro Novo"></div>
+      
+      <div class="acrylic-plate"><img src="https://i.postimg.cc/QtQ10dXK/IMG_20260106_143040.png" class="trusted-logo"></div>
+      <div class="acrylic-plate"><img src="https://i.postimg.cc/HLQrCvfG/images_(1)_(1).png" class="trusted-logo"></div>
+      <div class="acrylic-plate"><img src="https://i.postimg.cc/d08hKNzw/IMG_20260106_140938.png" class="trusted-logo"></div>
+      <div class="acrylic-plate"><img src="https://i.postimg.cc/28NMv0by/IMG-20260107-WA0021.png" class="trusted-logo"></div>
+      <div class="acrylic-plate"><img src="https://i.postimg.cc/mZS79kp2/logo_mazzaropi_C7hn_YVKl.png" class="trusted-logo"></div>
+      <div class="acrylic-plate"><img src="https://i.postimg.cc/fLw125SC/Gemini_Generated_Image_fiqfdvfiqfdvfiqf.png" class="trusted-logo"></div>
+      <div class="acrylic-plate"><img src="https://i.postimg.cc/tCn1mQbV/Vila_inglesa.png" class="trusted-logo"></div>
+      <div class="acrylic-plate"><img src="https://i.postimg.cc/vH6Mj7h1/IMG_20260109_WA0028.jpg" class="trusted-logo"></div>
     </div>
   </div>
 
