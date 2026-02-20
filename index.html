@@ -9,7 +9,7 @@
 
   <style>
     :root {
-      --accent: #C5A059; /* Dourado Champagne */
+      --accent: #C5A059;
       --black: #1a1a1a;
       --white: #ffffff;
       --palha: #f4efe8;
@@ -25,17 +25,14 @@
       color: var(--black);
       margin: 0;
       line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
     }
 
     img { max-width: 100%; display: block; }
 
-    /* ESTILO DO LOGOTIPO MUGSHOPP (IMAGEM) */
     .brand-logo-img {
       max-width: 400px;
-      height: auto;
-      display: block;
       margin: 0 auto 10px;
+      display: block;
     }
 
     header {
@@ -58,7 +55,6 @@
 
     .header-content h1 {
       font-size: 1.8rem;
-      letter-spacing: -0.5px;
       margin-bottom: 15px;
       font-weight: 600;
     }
@@ -75,19 +71,17 @@
       font-size: 0.7rem;
       text-transform: uppercase;
       letter-spacing: 1.5px;
-      color: var(--black);
       font-weight: 600;
-      display: block;
       margin-top: 20px;
-      opacity: 0.8;
+      display: block;
     }
 
-    /* SEÇÃO DE CLIENTES EM CARROSSEL */
+    /* CARROSSEL */
     .trusted-by {
       padding: 20px 22px 60px;
       max-width: 1100px;
       margin: 0 auto;
-      overflow: hidden;
+      overflow-x: hidden;
     }
 
     .trusted-by p {
@@ -100,63 +94,64 @@
 
     .slider {
       display: flex;
-      width: max-content; 
-      animation: scroll 40s linear infinite;
-      align-items: center;
       gap: 50px;
       padding: 30px 0;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .slider::-webkit-scrollbar {
+      display: none;
+    }
+
+    .acrylic-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 240px;
+      flex-shrink: 0;
     }
 
     .acrylic-plate {
-      position: relative;
       background: rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
       border-radius: 12px;
       padding: 25px 45px;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 130px; 
+      height: 130px;
       min-width: 240px;
       border: 1px solid rgba(255, 255, 255, 0.5);
       box-shadow: 
         inset 0 0 15px rgba(255, 255, 255, 0.3),
         10px 10px 25px rgba(0, 0, 0, 0.05);
-      overflow: hidden;
-      transition: all 0.4s ease;
-    }
-
-    .acrylic-plate::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 50%;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 60%);
-      pointer-events: none;
-    }
-
-    .slider .trusted-logo {
-      height: 70px; 
-      width: auto;
-      filter: none; 
-      opacity: 0.95;
-      transition: all 0.5s ease;
-      flex-shrink: 0;
-      z-index: 1;
+      transition: 0.4s;
     }
 
     .acrylic-plate:hover {
-      transform: translateY(-8px) scale(1.05);
+      transform: translateY(-6px) scale(1.03);
       border-color: var(--accent);
-      background: rgba(255, 255, 255, 0.3);
     }
 
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+    .trusted-logo {
+      height: 70px;
+      width: auto;
+      opacity: 0.95;
     }
 
-    /* GRID DE PRODUTOS */
+    .partner-name {
+      margin-top: 12px;
+      font-size: 0.72rem;
+      letter-spacing: 1px;
+      color: var(--cinza);
+      text-transform: uppercase;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    /* PRODUTOS */
     .container {
       max-width: 1100px;
       margin: 0 auto;
@@ -239,7 +234,6 @@
       font-weight: 600;
     }
 
-    /* BOTÃO FINAL */
     .cta-section {
       text-align: left;
       padding: 60px 0;
@@ -263,7 +257,6 @@
       background: var(--accent);
     }
 
-    /* RODAPÉ PADRONIZADO */
     footer {
       padding: 100px 22px;
       background: #fafafa;
@@ -273,7 +266,6 @@
 
     .footer-brand-logo-img {
       width: 180px;
-      height: auto;
       margin: 0 auto;
       display: block;
     }
@@ -286,122 +278,167 @@
       text-transform: uppercase;
       margin-top: 30px;
     }
-
-    @media (max-width: 768px) {
-      .catalog-grid { grid-template-columns: 1fr 1fr; }
-      .header-content { text-align: center; }
-      .header-content p { margin: 0 auto; }
-      .brand-logo-img { max-width: 80%; }
-    }
-
-    @media (max-width: 480px) {
-      .catalog-grid { grid-template-columns: 1fr; }
-    }
   </style>
 </head>
 <body>
 
-  <header>
-    <img src="https://i.postimg.cc/wxsStnBH/Sem-fundo.png" alt="MUGSHOPP Estúdio de Design" class="brand-logo-img">
-    <div class="header-divider"></div>
-    <div class="header-content">
-      <h1>Portfólio corporativo de personalizados</h1>
-      <p>Curadoria exclusiva em brindes de alto padrão para marcas que valorizam a excelência técnica e o design autoral.</p>
-      <span class="header-badge">Qualidade impecável • Prazos realistas</span>
-    </div>
-  </header>
+<header>
+  <img src="https://i.postimg.cc/wxsStnBH/Sem-fundo.png" alt="MUGSHOPP Estúdio de Design" class="brand-logo-img">
+  <div class="header-divider"></div>
+  <div class="header-content">
+    <h1>Portfólio corporativo de personalizados</h1>
+    <p>Curadoria exclusiva em brindes de alto padrão para marcas que valorizam a excelência técnica e o design autoral.</p>
+    <span class="header-badge">Qualidade impecável • Prazos realistas</span>
+  </div>
+</header>
 
-  <div class="trusted-by">
-    <p>Marcas que confiam em nossa produção:</p>
-    <div class="slider">
-      <div class="acrylic-plate"><img src="https://i.postimg.cc/QtQ10dXK/IMG_20260106_143040.png" class="trusted-logo" alt="Marfil"></div>
-      <div class="acrylic-plate"><img src="https://i.postimg.cc/HLQrCvfG/images_(1)_(1).png" class="trusted-logo" alt="Aldine Muller"></div>
-      <div class="acrylic-plate"><img src="https://i.postimg.cc/d08hKNzw/IMG_20260106_140938.png" class="trusted-logo" alt="Convicção"></div>
-      <div class="acrylic-plate"><img src="https://i.postimg.cc/28NMv0by/IMG-20260107-WA0021.png" class="trusted-logo" alt="Diocese"></div>
-      <div class="acrylic-plate"><img src="https://i.postimg.cc/mZS79kp2/logo_mazzaropi_C7hn_YVKl.png" class="trusted-logo" alt="Mazzaropi"></div>
-      <div class="acrylic-plate"><img src="https://i.postimg.cc/tCn1mQbV/Vila_inglesa.png" class="trusted-logo" alt="Vila Inglesa"></div>
-      <div class="acrylic-plate"><img src="https://i.postimg.cc/vH6Mj7h1/IMG_20260109_WA0028.jpg" class="trusted-logo" alt="Parceiro Novo"></div>
-      
-      <div class="acrylic-plate"><img src="https://i.postimg.cc/QtQ10dXK/IMG_20260106_143040.png" class="trusted-logo"></div>
-      <div class="acrylic-plate"><img src="https://i.postimg.cc/HLQrCvfG/images_(1)_(1).png" class="trusted-logo"></div>
-      <div class="acrylic-plate"><img src="https://i.postimg.cc/d08hKNzw/IMG_20260106_140938.png" class="trusted-logo"></div>
-      <div class="acrylic-plate"><img src="https://i.postimg.cc/28NMv0by/IMG-20260107-WA0021.png" class="trusted-logo"></div>
-      <div class="acrylic-plate"><img src="https://i.postimg.cc/mZS79kp2/logo_mazzaropi_C7hn_YVKl.png" class="trusted-logo"></div>
-      <div class="acrylic-plate"><img src="https://i.postimg.cc/tCn1mQbV/Vila_inglesa.png" class="trusted-logo"></div>
-      <div class="acrylic-plate"><img src="https://i.postimg.cc/vH6Mj7h1/IMG_20260109_WA0028.jpg" class="trusted-logo"></div>
+<div class="trusted-by">
+  <p>Marcas que confiam em nossa produção:</p>
+  <div class="slider">
+
+    <div class="acrylic-item">
+      <div class="acrylic-plate">
+        <img src="https://i.postimg.cc/QtQ10dXK/IMG_20260106_143040.png" class="trusted-logo">
+      </div>
+      <span class="partner-name">Convicção Contabilidade</span>
     </div>
+
+    <div class="acrylic-item">
+      <div class="acrylic-plate">
+        <img src="https://i.postimg.cc/HLQrCvfG/images_(1)_(1).png" class="trusted-logo">
+      </div>
+      <span class="partner-name">Marmoraria Marfil</span>
+    </div>
+
+    <div class="acrylic-item">
+      <div class="acrylic-plate">
+        <img src="https://i.postimg.cc/d08hKNzw/IMG_20260106_140938.png" class="trusted-logo">
+      </div>
+      <span class="partner-name">Podcast Aldine Muller</span>
+    </div>
+
+    <div class="acrylic-item">
+      <div class="acrylic-plate">
+        <img src="https://i.postimg.cc/28NMv0by/IMG-20260107-WA0021.png" class="trusted-logo">
+      </div>
+      <span class="partner-name">Diocese Menino Jesus</span>
+    </div>
+
+    <div class="acrylic-item">
+      <div class="acrylic-plate">
+        <img src="https://i.postimg.cc/mZS79kp2/logo_mazzaropi_C7hn_YVKl.png" class="trusted-logo">
+      </div>
+      <span class="partner-name">Hotel Fazenda Mazzaropi</span>
+    </div>
+
+    <div class="acrylic-item">
+      <div class="acrylic-plate">
+        <img src="https://i.postimg.cc/tCn1mQbV/Vila_inglesa.png" class="trusted-logo">
+      </div>
+      <span class="partner-name">Hotel Vila Inglesa</span>
+    </div>
+
+    <div class="acrylic-item">
+      <div class="acrylic-plate">
+        <img src="https://i.postimg.cc/vH6Mj7h1/IMG_20260109_WA0028.jpg" class="trusted-logo">
+      </div>
+      <span class="partner-name">Barraca da Vovó</span>
+    </div>
+
+  </div>
+</div>
+
+<div class="container">
+  <div class="section-header">
+    <h2 class="section-title">Coleção Premium</h2>
+    <p class="kit-suggestion">Configurações sugeridas: Kit Boas-vindas Executivo | Kit Eventos de Impacto</p>
   </div>
 
-  <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">Coleção Premium</h2>
-      <p class="kit-suggestion">Configurações sugeridas: Kit Boas-vindas Executivo | Kit Eventos de Impacto</p>
-    </div>
+  <div class="catalog-grid">
 
-    <div class="catalog-grid">
-      <div class="product-card">
-        <div class="product-image-wrapper"><img src="https://i.postimg.cc/T3JF2Thq/mousepad.png" alt="Mousepad"></div>
-        <div class="product-info">
-          <h3>Mousepad Premium</h3>
-          <p>Base em borracha antiderrapante com acabamento em tecido de alta performance.</p>
-          <div class="product-specs">Linha Essenciais de Escritório</div>
-        </div>
+    <div class="product-card">
+      <div class="product-image-wrapper">
+        <img src="https://i.postimg.cc/T3JF2Thq/mousepad.png" alt="Mousepad">
       </div>
-      <div class="product-card">
-        <div class="product-image-wrapper"><img src="https://i.postimg.cc/DzfD8RXk/Porta_copos.png" alt="Porta-copos"></div>
-        <div class="product-info">
-          <h3>Porta-copos Executivo</h3>
-          <p>O complemento ideal para proteger o mobiliário corporativo com identidade.</p>
-          <div class="product-specs">Kit Boas-Vindas</div>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-image-wrapper"><img src="https://i.postimg.cc/GmC6143J/chaveiro.png" alt="Chaveiro"></div>
-        <div class="product-info">
-          <h3>Chaveiro Acrílico 4mm</h3>
-          <p>Transparência cristal com impressão no verso, conferindo profundidade à marca.</p>
-          <div class="product-specs">Acessórios Personalizados</div>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-image-wrapper"><img src="https://i.postimg.cc/WzT1Z0w5/squeeze-aco-inox-(1).png" alt="Squeeze"></div>
-        <div class="product-info">
-          <h3>Squeeze em Alumínio</h3>
-          <p>Acabamento polido e durabilidade extrema para uso diário intenso.</p>
-          <div class="product-specs">Linha Saúde e Bem-Estar</div>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-image-wrapper"><img src="https://i.postimg.cc/Qd3vrFNb/caneca_cerâmica.png" alt="Caneca Cerâmica"></div>
-        <div class="product-info">
-          <h3>Caneca Cerâmica Alto Brilho</h3>
-          <p>Brilho impecável com resistência a processos de lavagem e micro-ondas.</p>
-          <div class="product-specs">Padrão de Qualidade MugShopp</div>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-image-wrapper"><img src="https://i.postimg.cc/Cxg9VRMD/caneca_alumínio.png" alt="Caneca Alumínio"></div>
-        <div class="product-info">
-          <h3>Caneca Alumínio 500ml</h3>
-          <p>Resistência e leveza com personalização em alta definição para eventos.</p>
-          <div class="product-specs">Linha Eventos & Branding</div>
-        </div>
+      <div class="product-info">
+        <h3>Mousepad Premium</h3>
+        <p>Base em borracha antiderrapante com acabamento em tecido de alta performance.</p>
+        <div class="product-specs">Linha Essenciais de Escritório</div>
       </div>
     </div>
 
-    <div class="cta-section">
-      <a href="https://wa.me/message/XJOCYNPNDO4DD1" class="cta-btn-line">Solicitar Orçamento Corporativo</a>
+    <div class="product-card">
+      <div class="product-image-wrapper">
+        <img src="https://i.postimg.cc/DzfD8RXk/Porta_copos.png" alt="Porta-copos">
+      </div>
+      <div class="product-info">
+        <h3>Porta-copos Executivo</h3>
+        <p>O complemento ideal para proteger o mobiliário corporativo com identidade.</p>
+        <div class="product-specs">Kit Boas-Vindas</div>
+      </div>
     </div>
+
+    <div class="product-card">
+      <div class="product-image-wrapper">
+        <img src="https://i.postimg.cc/GmC6143J/chaveiro.png" alt="Chaveiro">
+      </div>
+      <div class="product-info">
+        <h3>Chaveiro Acrílico 4mm</h3>
+        <p>Transparência cristal com impressão no verso, conferindo profundidade à marca.</p>
+        <div class="product-specs">Acessórios Personalizados</div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image-wrapper">
+        <img src="https://i.postimg.cc/WzT1Z0w5/squeeze-aco-inox-(1).png" alt="Squeeze">
+      </div>
+      <div class="product-info">
+        <h3>Squeeze em Alumínio</h3>
+        <p>Acabamento polido e durabilidade extrema para uso diário intenso.</p>
+        <div class="product-specs">Linha Saúde e Bem-Estar</div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image-wrapper">
+        <img src="https://i.postimg.cc/Qd3vrFNb/caneca_cerâmica.png" alt="Caneca Cerâmica">
+      </div>
+      <div class="product-info">
+        <h3>Caneca Cerâmica Alto Brilho</h3>
+        <p>Brilho impecável com resistência a processos de lavagem e micro-ondas.</p>
+        <div class="product-specs">Padrão de Qualidade MugShopp</div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image-wrapper">
+        <img src="https://i.postimg.cc/Cxg9VRMD/caneca_alumínio.png" alt="Caneca Alumínio">
+      </div>
+      <div class="product-info">
+        <h3>Caneca Alumínio 500ml</h3>
+        <p>Resistência e leveza com personalização em alta definição para eventos.</p>
+        <div class="product-specs">Linha Eventos & Branding</div>
+      </div>
+    </div>
+
   </div>
 
-  <footer>
-    <img src="https://i.postimg.cc/wxsStnBH/Sem-fundo.png" alt="MugShopp Logo" class="footer-brand-logo-img">
-    <div class="footer-legal">
-      MUGSHOPP • ESTÚDIO DE DESIGN E PERSONALIZADOS<br>
-      TAUBATÉ/SP • CNPJ: 64.137.780/0001-07<br>
-      © 2026 TODOS OS DIREITOS RESERVADOS.
-    </div>
-  </footer>
+  <div class="cta-section">
+    <a href="https://wa.me/message/XJOCYNPNDO4DD1" class="cta-btn-line">
+      Solicitar Orçamento Corporativo
+    </a>
+  </div>
+</div>
+
+<footer>
+  <img src="https://i.postimg.cc/wxsStnBH/Sem-fundo.png" class="footer-brand-logo-img">
+  <div class="footer-legal">
+    MUGSHOPP • ESTÚDIO DE DESIGN E PERSONALIZADOS<br>
+    TAUBATÉ/SP • CNPJ: 64.137.780/0001-07<br>
+    © 2026 TODOS OS DIREITOS RESERVADOS.
+  </div>
+</footer>
 
 </body>
 </html>
