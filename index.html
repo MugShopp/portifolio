@@ -99,6 +99,11 @@
       overflow-x: auto;
       scroll-behavior: smooth;
       -webkit-overflow-scrolling: touch;
+      cursor: grab;
+    }
+
+    .slider:active {
+      cursor: grabbing;
     }
 
     .slider::-webkit-scrollbar {
@@ -345,6 +350,13 @@
       <span class="partner-name">Barraca da Vovó</span>
     </div>
 
+    <div class="acrylic-item">
+      <div class="acrylic-plate">
+        <img src="https://i.postimg.cc/fbxVhq1G/images.png" class="trusted-logo">
+      </div>
+      <span class="partner-name">Íbis Style</span>
+    </div>
+
   </div>
 </div>
 
@@ -439,6 +451,73 @@
     © 2026 TODOS OS DIREITOS RESERVADOS.
   </div>
 </footer>
+
+<script>
+const slider = document.querySelector('.slider');
+let isDown = false;
+let startX;
+let scrollLeft;
+
+// Duplicar os itens para loop infinito
+slider.innerHTML += slider.innerHTML;
+
+// Arrastar manualmente
+slider.addEventListener('mousedown', (e) => {
+  isDown = true;
+  slider.classList.add('active');
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+});
+
+slider.addEventListener('mouseleave', () => {
+  isDown = false;
+  slider.classList.remove('active');
+});
+
+slider.addEventListener('mouseup', () => {
+  isDown = false;
+  slider.classList.remove('active');
+});
+
+slider.addEventListener('mousemove', (e) => {
+  if(!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - slider.offsetLeft;
+  const walk = (x - startX) * 2; 
+  slider.scrollLeft = scrollLeft - walk;
+});
+
+// Toque para mobile
+slider.addEventListener('touchstart', (e) => {
+  isDown = true;
+  startX = e.touches[0].pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+});
+
+slider.addEventListener('touchend', () => {
+  isDown = false;
+});
+
+slider.addEventListener('touchmove', (e) => {
+  if(!isDown) return;
+  const x = e.touches[0].pageX - slider.offsetLeft;
+  const walk = (x - startX) * 2;
+  slider.scrollLeft = scrollLeft - walk;
+});
+
+// Auto-scroll infinito suave
+function autoScroll() {
+  if(!isDown) {
+    slider.scrollLeft += 1;
+    if (slider.scrollLeft >= slider.scrollWidth / 2) {
+      slider.scrollLeft = 0;
+    }
+  }
+  requestAnimationFrame(autoScroll);
+}
+
+autoScroll();
+</script>
 
 </body>
 </html>
