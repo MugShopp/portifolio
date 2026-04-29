@@ -76,84 +76,72 @@
       display: block;
     }
 
-    /* CARROSSEL */
+    /* SEÇÃO DE MARCAS - INFINITE MARQUEE */
     .trusted-by {
-      padding: 20px 22px 60px;
-      max-width: 1100px;
+      padding: 60px 22px;
+      max-width: 100%;
       margin: 0 auto;
-      overflow-x: hidden;
+      background: var(--white);
+      border-top: 1px solid var(--cinza-claro);
+      border-bottom: 1px solid var(--cinza-claro);
     }
 
-    .trusted-by p {
+    .trusted-by-title {
+      text-align: center;
       font-size: 0.7rem;
       text-transform: uppercase;
       letter-spacing: 2px;
       color: #bbb;
-      margin-bottom: 35px;
+      margin-bottom: 40px;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .slider {
+    .marquee-container {
+      overflow: hidden;
+      width: 100%;
+      background: var(--white);
+    }
+
+    .marquee {
       display: flex;
-      gap: 50px;
-      padding: 30px 0;
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
-      cursor: grab;
+      gap: 60px;
+      animation: scroll 40s linear infinite;
+      width: fit-content;
     }
 
-    .slider:active {
-      cursor: grabbing;
+    .marquee:hover {
+      animation-play-state: paused;
     }
 
-    .slider::-webkit-scrollbar {
-      display: none;
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
     }
 
-    .acrylic-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-width: 240px;
-      flex-shrink: 0;
-    }
-
-    .acrylic-plate {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
-      border-radius: 12px;
-      padding: 25px 45px;
+    .marquee-item {
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 130px;
-      min-width: 240px;
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      box-shadow: 
-        inset 0 0 15px rgba(255, 255, 255, 0.3),
-        10px 10px 25px rgba(0, 0, 0, 0.05);
-      transition: 0.4s;
+      min-width: 200px;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
     }
 
-    .acrylic-plate:hover {
-      transform: translateY(-6px) scale(1.03);
-      border-color: var(--accent);
+    .marquee-item:hover {
+      transform: scale(1.1);
     }
 
-    .trusted-logo {
-      height: 70px;
+    .marquee-logo {
+      height: 80px;
       width: auto;
-      opacity: 0.95;
-    }
-
-    .partner-name {
-      margin-top: 12px;
-      font-size: 0.72rem;
-      letter-spacing: 1px;
-      color: var(--cinza);
-      text-transform: uppercase;
-      font-weight: 500;
-      text-align: center;
+      max-width: 180px;
+      object-fit: contain;
     }
 
     /* PRODUTOS */
@@ -283,6 +271,55 @@
       text-transform: uppercase;
       margin-top: 30px;
     }
+
+    /* AJUSTES PARA DISPOSITIVOS MÓVEIS */
+    @media (max-width: 768px) {
+      header {
+        padding: 40px 20px 20px;
+      }
+      
+      .brand-logo-img {
+        max-width: 280px;
+      }
+
+      .header-content h1 {
+        font-size: 1.4rem;
+      }
+
+      .catalog-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .product-image-wrapper {
+        margin-bottom: 15px;
+      }
+
+      .section-header {
+        padding-top: 30px;
+      }
+
+      .marquee {
+        gap: 40px;
+        animation: scroll 30s linear infinite;
+      }
+
+      .marquee-item {
+        min-width: 150px;
+      }
+
+      .marquee-logo {
+        height: 60px;
+      }
+
+      .trusted-by {
+        padding: 40px 22px;
+      }
+
+      .trusted-by-title {
+        margin-bottom: 30px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -297,66 +334,64 @@
   </div>
 </header>
 
+<!-- SEÇÃO DE MARCAS - INFINITE MARQUEE -->
 <div class="trusted-by">
-  <p>Marcas que confiam em nossa produção:</p>
-  <div class="slider">
-
-    <div class="acrylic-item">
-      <div class="acrylic-plate">
-        <img src="https://i.postimg.cc/QtQ10dXK/IMG_20260106_143040.png" class="trusted-logo">
+  <div class="trusted-by-title">Marcas que confiam em nossa produção:</div>
+  
+  <div class="marquee-container">
+    <div class="marquee">
+      <!-- Primeira sequência de logotipos -->
+      <div class="marquee-item">
+        <img src="https://i.postimg.cc/QtQ10dXK/IMG_20260106_143040.png" alt="Convicção Contabilidade" class="marquee-logo">
       </div>
-      <span class="partner-name">Convicção Contabilidade</span>
-    </div>
-
-    <div class="acrylic-item">
-      <div class="acrylic-plate">
-        <img src="https://i.postimg.cc/HLQrCvfG/images_(1)_(1).png" class="trusted-logo">
+      <div class="marquee-item">
+        <img src="https://i.postimg.cc/HLQrCvfG/images_(1)_(1).png" alt="Marmoraria Marfil" class="marquee-logo">
       </div>
-      <span class="partner-name">Marmoraria Marfil</span>
-    </div>
-
-    <div class="acrylic-item">
-      <div class="acrylic-plate">
-        <img src="https://i.postimg.cc/d08hKNzw/IMG_20260106_140938.png" class="trusted-logo">
+      <div class="marquee-item">
+        <img src="https://i.postimg.cc/d08hKNzw/IMG_20260106_140938.png" alt="Podcast Aldine Muller" class="marquee-logo">
       </div>
-      <span class="partner-name">Podcast Aldine Muller</span>
-    </div>
-
-    <div class="acrylic-item">
-      <div class="acrylic-plate">
-        <img src="https://i.postimg.cc/28NMv0by/IMG-20260107-WA0021.png" class="trusted-logo">
+      <div class="marquee-item">
+        <img src="https://i.postimg.cc/28NMv0by/IMG-20260107-WA0021.png" alt="Diocese Menino Jesus" class="marquee-logo">
       </div>
-      <span class="partner-name">Diocese Menino Jesus</span>
-    </div>
-
-    <div class="acrylic-item">
-      <div class="acrylic-plate">
-        <img src="https://i.postimg.cc/mZS79kp2/logo_mazzaropi_C7hn_YVKl.png" class="trusted-logo">
+      <div class="marquee-item">
+        <img src="https://i.postimg.cc/mZS79kp2/logo_mazzaropi_C7hn_YVKl.png" alt="Hotel Fazenda Mazzaropi" class="marquee-logo">
       </div>
-      <span class="partner-name">Hotel Fazenda Mazzaropi</span>
-    </div>
-
-    <div class="acrylic-item">
-      <div class="acrylic-plate">
-        <img src="https://i.postimg.cc/tCn1mQbV/Vila_inglesa.png" class="trusted-logo">
+      <div class="marquee-item">
+        <img src="https://i.postimg.cc/tCn1mQbV/Vila_inglesa.png" alt="Hotel Vila Inglesa" class="marquee-logo">
       </div>
-      <span class="partner-name">Hotel Vila Inglesa</span>
-    </div>
-
-    <div class="acrylic-item">
-      <div class="acrylic-plate">
-        <img src="https://i.postimg.cc/vH6Mj7h1/IMG_20260109_WA0028.jpg" class="trusted-logo">
+      <div class="marquee-item">
+        <img src="https://i.postimg.cc/vH6Mj7h1/IMG_20260109_WA0028.jpg" alt="Barraca da Vovó" class="marquee-logo">
       </div>
-      <span class="partner-name">Barraca da Vovó</span>
-    </div>
-
-    <div class="acrylic-item">
-      <div class="acrylic-plate">
-        <img src="https://i.postimg.cc/fbxVhq1G/images.png" class="trusted-logo">
+      <div class="marquee-item">
+        <img src="https://i.postimg.cc/fbxVhq1G/images.png" alt="Íbis Style" class="marquee-logo">
       </div>
-      <span class="partner-name">Íbis Style</span>
-    </div>
 
+      <!-- Segunda sequência de logotipos (duplicada para loop infinito) -->
+      <div class="marquee-item">
+        <img src="https://i.postimg.cc/QtQ10dXK/IMG_20260106_143040.png" alt="Convicção Contabilidade" class="marquee-logo">
+      </div>
+      <div class="marquee-item">
+        <img src="https://i.postimg.cc/HLQrCvfG/images_(1)_(1).png" alt="Marmoraria Marfil" class="marquee-logo">
+      </div>
+      <div class="marquee-item">
+        <img src="https://i.postimg.cc/d08hKNzw/IMG_20260106_140938.png" alt="Podcast Aldine Muller" class="marquee-logo">
+      </div>
+      <div class="marquee-item">
+        <img src="https://i.postimg.cc/28NMv0by/IMG-20260107-WA0021.png" alt="Diocese Menino Jesus" class="marquee-logo">
+      </div>
+      <div class="marquee-item">
+        <img src="https://i.postimg.cc/mZS79kp2/logo_mazzaropi_C7hn_YVKl.png" alt="Hotel Fazenda Mazzaropi" class="marquee-logo">
+      </div>
+      <div class="marquee-item">
+        <img src="https://i.postimg.cc/tCn1mQbV/Vila_inglesa.png" alt="Hotel Vila Inglesa" class="marquee-logo">
+      </div>
+      <div class="marquee-item">
+        <img src="https://i.postimg.cc/vH6Mj7h1/IMG_20260109_WA0028.jpg" alt="Barraca da Vovó" class="marquee-logo">
+      </div>
+      <div class="marquee-item">
+        <img src="https://i.postimg.cc/fbxVhq1G/images.png" alt="Íbis Style" class="marquee-logo">
+      </div>
+    </div>
   </div>
 </div>
 
@@ -398,6 +433,18 @@
         <h3>Chaveiro Acrílico 4mm</h3>
         <p>Transparência cristal com impressão no verso, conferindo profundidade à marca.</p>
         <div class="product-specs">Acessórios Personalizados</div>
+      </div>
+    </div>
+
+    <!-- PRODUTO ATUALIZADO: SACOLA DE OXFORD -->
+    <div class="product-card">
+      <div class="product-image-wrapper">
+        <img src="https://i.postimg.cc/BZ5bnmzL/Sacola-Saquinho.png" alt="Sacola de Ombro Oxford">
+      </div>
+      <div class="product-info">
+        <h3>Sacola de Ombro Oxford</h3>
+        <p>Praticidade e resistência em tecido Oxford de secagem rápida. Com cordão de algodão macio, é a escolha ideal para transportar objetos leves com estilo e segurança.</p>
+        <div class="product-specs">Linha Eco & Praticidade</div>
       </div>
     </div>
 
@@ -452,72 +499,5 @@
   </div>
 </footer>
 
-<script>
-const slider = document.querySelector('.slider');
-let isDown = false;
-let startX;
-let scrollLeft;
-
-// Duplicar os itens para loop infinito
-slider.innerHTML += slider.innerHTML;
-
-// Arrastar manualmente
-slider.addEventListener('mousedown', (e) => {
-  isDown = true;
-  slider.classList.add('active');
-  startX = e.pageX - slider.offsetLeft;
-  scrollLeft = slider.scrollLeft;
-});
-
-slider.addEventListener('mouseleave', () => {
-  isDown = false;
-  slider.classList.remove('active');
-});
-
-slider.addEventListener('mouseup', () => {
-  isDown = false;
-  slider.classList.remove('active');
-});
-
-slider.addEventListener('mousemove', (e) => {
-  if(!isDown) return;
-  e.preventDefault();
-  const x = e.pageX - slider.offsetLeft;
-  const walk = (x - startX) * 2; 
-  slider.scrollLeft = scrollLeft - walk;
-});
-
-// Toque para mobile
-slider.addEventListener('touchstart', (e) => {
-  isDown = true;
-  startX = e.touches[0].pageX - slider.offsetLeft;
-  scrollLeft = slider.scrollLeft;
-});
-
-slider.addEventListener('touchend', () => {
-  isDown = false;
-});
-
-slider.addEventListener('touchmove', (e) => {
-  if(!isDown) return;
-  const x = e.touches[0].pageX - slider.offsetLeft;
-  const walk = (x - startX) * 2;
-  slider.scrollLeft = scrollLeft - walk;
-});
-
-// Auto-scroll infinito suave
-function autoScroll() {
-  if(!isDown) {
-    slider.scrollLeft += 1;
-    if (slider.scrollLeft >= slider.scrollWidth / 2) {
-      slider.scrollLeft = 0;
-    }
-  }
-  requestAnimationFrame(autoScroll);
-}
-
-autoScroll();
-</script>
-
 </body>
-</html>
+          </html>
